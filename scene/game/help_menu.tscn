@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bty8x5cdu77i"]
+[gd_scene load_steps=10 format=3 uid="uid://bty8x5cdu77i"]
 
 [ext_resource type="Script" path="res://scripts/game/help_menu.gd" id="1_avu1g"]
 [ext_resource type="Texture2D" uid="uid://conf3o1gae2b8" path="res://asset/texture/ui/help_window.png" id="2_508wk"]
@@ -6,11 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://cxhcpkt0u7h8k" path="res://asset/texture/ui/close_pressed.png" id="3_cqsrb"]
 [ext_resource type="Texture2D" uid="uid://bk1ug20vdr4tt" path="res://asset/texture/ui/yellowbackground.png" id="5_l1fky"]
 [ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="6_griyn"]
+[ext_resource type="Texture2D" uid="uid://dulpl26kdhygo" path="res://asset/texture/ui/help_banner.png" id="7_x83b7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tor7b"]
 font = ExtResource("6_griyn")
 font_size = 5
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dvju4"]
+font = ExtResource("6_griyn")
+font_size = 4
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Help_Menu" type="CanvasLayer"]
 process_mode = 3
@@ -57,5 +64,20 @@ game. Your local goal is to shot and
 kill ennemies.
  "
 label_settings = SubResource("LabelSettings_tor7b")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 153.0
+offset_right = 110.0
+offset_bottom = 172.0
+text = "Z, S, A, D for move
+Space for shot"
+label_settings = SubResource("LabelSettings_dvju4")
+horizontal_alignment = 1
+
+[node name="HelpBanner" type="Sprite2D" parent="."]
+position = Vector2(82.0217, 73)
+scale = Vector2(0.249879, 0.26087)
+texture = ExtResource("7_x83b7")
 
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
