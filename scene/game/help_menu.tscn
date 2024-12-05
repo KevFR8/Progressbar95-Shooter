@@ -1,7 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://bty8x5cdu77i"]
+[gd_scene load_steps=8 format=3 uid="uid://bty8x5cdu77i"]
 
 [ext_resource type="Script" path="res://scripts/game/help_menu.gd" id="1_avu1g"]
+[ext_resource type="Texture2D" uid="uid://conf3o1gae2b8" path="res://asset/texture/ui/help_window.png" id="2_508wk"]
+[ext_resource type="Texture2D" uid="uid://ruufgc50ejx7" path="res://asset/texture/ui/close_idle.png" id="2_qa3xw"]
+[ext_resource type="Texture2D" uid="uid://cxhcpkt0u7h8k" path="res://asset/texture/ui/close_pressed.png" id="3_cqsrb"]
+[ext_resource type="Texture2D" uid="uid://bk1ug20vdr4tt" path="res://asset/texture/ui/yellowbackground.png" id="5_l1fky"]
+[ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="6_griyn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tor7b"]
+font = ExtResource("6_griyn")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
 
 [node name="Help_Menu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_avu1g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.12549)
+
+[node name="HelpWindow" type="Sprite2D" parent="."]
+position = Vector2(82, 113)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("2_508wk")
+
+[node name="Close" type="TextureButton" parent="."]
+offset_left = 122.0
+offset_top = 50.0
+offset_right = 162.0
+offset_bottom = 90.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_qa3xw")
+texture_pressed = ExtResource("3_cqsrb")
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(118, 49)
+scale = Vector2(0.2, 0.2)
+
+[node name="Yellowbackground" type="Sprite2D" parent="."]
+position = Vector2(82, 129.5)
+scale = Vector2(1.40625, 1.32813)
+texture = ExtResource("5_l1fky")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 39.0
+offset_top = 103.0
+offset_right = 126.0
+offset_bottom = 136.0
+text = "Progressbar 95 Shooter  is a shooter 
+game. Your local goal is to shot and
+kill ennemies.
+ "
+label_settings = SubResource("LabelSettings_tor7b")
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

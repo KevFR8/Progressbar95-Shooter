@@ -12,9 +12,7 @@ func pause_unpaused():
 		get_tree().paused = false
 		hide()
 
-func _on_texture_button_pressed():
+func _on_close_pressed():
 	$ClickSFX.play()
 	get_tree().paused = false
 	hide()
-
-
