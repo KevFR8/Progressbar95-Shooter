@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp8m10ijyivkt"]
+
+[ext_resource type="Texture2D" uid="uid://jomvkicbr8l8" path="res://asset/texture/sprite/enemy/Clippy/popup_1.png" id="1_q5coh"]
+[ext_resource type="Script" path="res://scripts/sprite/enemy/Clippy/clippy_1.gd" id="1_qe6t8"]
+[ext_resource type="AudioStream" uid="uid://bujvhjaplj8t6" path="res://asset/sfx/dshot2.mp3" id="3_m1hmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0vs1"]
+size = Vector2(29, 20)
+
+[node name="Clippy_1" type="Node2D"]
+script = ExtResource("1_qe6t8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-3, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_q5coh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_d0vs1")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4, -5.96046e-08)
+scale = Vector2(1.5, 1.1)
+
+[node name="TouchedEnemySFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m1hmk")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

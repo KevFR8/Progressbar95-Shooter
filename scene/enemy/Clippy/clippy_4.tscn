@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5y5s0vs0nlek"]
+
+[ext_resource type="PackedScene" uid="uid://dp8m10ijyivkt" path="res://scene/enemy/Clippy/clippy_1.tscn" id="1_0rugv"]
+[ext_resource type="Texture2D" uid="uid://63monpgadvon" path="res://asset/texture/sprite/enemy/Clippy/popup_4.png" id="2_xa5q5"]
+
+[node name="Clippy_1" instance=ExtResource("1_0rugv")]
+
+[node name="Sprite2D" parent="Area2D" index="0"]
+texture = ExtResource("2_xa5q5")

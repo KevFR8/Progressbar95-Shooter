@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlndk7e3afmfc"]
+
+[ext_resource type="Texture2D" uid="uid://c4coprx874q30" path="res://asset/texture/sprite/player/progressbar.png" id="1_4f0ee"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_4f0ee")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4hw6xorujlia"]
+
+[ext_resource type="Script" path="res://scripts/sprite/player/player.gd" id="1_jq5ax"]
+[ext_resource type="Texture2D" uid="uid://c4coprx874q30" path="res://asset/texture/sprite/player/progressbar.png" id="1_tx1pk"]
+[ext_resource type="AudioStream" uid="uid://cfe3l3yksxsux" path="res://asset/sfx/dshot1.mp3" id="3_olof7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi53s"]
+size = Vector2(28, 14)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_jq5ax")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(79, 222)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_tx1pk")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(79, 213)
+
+[node name="ShotSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_olof7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(79, 222)
+shape = SubResource("RectangleShape2D_qi53s")

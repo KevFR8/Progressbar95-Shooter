@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://bfnlbqt0qdkd"]
+
+[ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
+[ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
+[ext_resource type="PackedScene" uid="uid://dp8m10ijyivkt" path="res://scene/enemy/Clippy/clippy_1.tscn" id="3_0e0nb"]
+[ext_resource type="PackedScene" uid="uid://brti4y651vuxp" path="res://scene/enemy/Clippy/clippy_2.tscn" id="3_ylgor"]
+[ext_resource type="PackedScene" uid="uid://b3q6typljbnyf" path="res://scene/enemy/Clippy/clippy_3.tscn" id="4_skf2q"]
+[ext_resource type="Texture2D" uid="uid://bhiur1wg8qde0" path="res://asset/texture/ui/settings_button.png" id="4_x8sdw"]
+[ext_resource type="Texture2D" uid="uid://doxtqm2hd6hbe" path="res://asset/texture/ui/info_button.png" id="5_u7c1l"]
+[ext_resource type="PackedScene" uid="uid://b5y5s0vs0nlek" path="res://scene/enemy/Clippy/clippy_4.tscn" id="6_83qyl"]
+[ext_resource type="PackedScene" uid="uid://bty8x5cdu77i" path="res://scene/game/help_menu.tscn" id="6_lejd1"]
+[ext_resource type="Texture2D" uid="uid://co5hr3yjvndjb" path="res://asset/texture/ui/settings_pressed.png" id="7_o022x"]
+[ext_resource type="Texture2D" uid="uid://bp7qcdviajmc8" path="res://asset/texture/ui/info_pressed.png" id="9_7w5gk"]
+[ext_resource type="PackedScene" uid="uid://c8fkwo0qkfr25" path="res://scene/game/pause_menu.tscn" id="11_ffmhc"]
+[ext_resource type="AudioStream" uid="uid://cjbmm1u7xis3y" path="res://asset/sfx/click.mp3" id="12_j3erg"]
+[ext_resource type="AudioStream" uid="uid://csyu8hvhkjo25" path="res://asset/sfx/ambient_bigrobot.ogg" id="13_oblus"]
+[ext_resource type="AudioStream" uid="uid://c0hlaxltxrvyp" path="res://asset/sfx/starthdd.mp3" id="14_jcuch"]
+[ext_resource type="PackedScene" uid="uid://b74dwmdsg1ny1" path="res://scene/game/hud.tscn" id="15_raoh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1p4"]
+size = Vector2(47, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44caa"]
+size = Vector2(160, 6)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5x6mr")
+enemy_scenes = Array[PackedScene]([ExtResource("3_0e0nb"), ExtResource("3_ylgor"), ExtResource("4_skf2q"), ExtResource("6_83qyl")])
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_ffmhc")]
+visible = false
+
+[node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
+visible = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("15_raoh3")]
+offset_top = 6.0
+offset_bottom = 6.0
+
+[node name="StaticBody" type="Node2D" parent="."]
+
+[node name="VerticalStatic1" type="StaticBody2D" parent="StaticBody"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody/VerticalStatic1"]
+position = Vector2(-22, 120)
+shape = SubResource("RectangleShape2D_sk1p4")
+
+[node name="VerticalStatic2" type="StaticBody2D" parent="StaticBody"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody/VerticalStatic2"]
+position = Vector2(183, 120)
+shape = SubResource("RectangleShape2D_sk1p4")
+
+[node name="HorizontalStatic1" type="StaticBody2D" parent="StaticBody"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody/HorizontalStatic1"]
+position = Vector2(80, 237)
+shape = SubResource("RectangleShape2D_44caa")
+
+[node name="HorizontalStatic2" type="StaticBody2D" parent="StaticBody"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody/HorizontalStatic2"]
+position = Vector2(80, 3)
+shape = SubResource("RectangleShape2D_44caa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 11.0
+offset_right = 174.0
+offset_bottom = 43.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_x8sdw")
+texture_pressed = ExtResource("7_o022x")
+
+[node name="HelpButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 43.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("5_u7c1l")
+texture_pressed = ExtResource("9_7w5gk")
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Player" parent="Player" groups=["player"] instance=ExtResource("1_2vyab")]
+position = Vector2(9, -24)
+
+[node name="PlayerSpawnPos" type="Marker2D" parent="Player"]
+position = Vector2(88, 189)
+
+[node name="BulletContainer" type="Node2D" parent="."]
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_j3erg")
+volume_db = 3.0
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_oblus")
+volume_db = -20.0
+autoplay = true
+
+[node name="HDDstart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_jcuch")
+autoplay = true
+
+[connection signal="button_up" from="Control/PauseButton" to="." method="_on_pause_button_button_up"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

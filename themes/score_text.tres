@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b3b6fn14e2gmb"]
+
+[ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="1_fgxkq"]
+
+[resource]
+font = ExtResource("1_fgxkq")
+font_size = 7

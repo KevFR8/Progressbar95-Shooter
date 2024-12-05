@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8fkwo0qkfr25"]
+
+[ext_resource type="Script" path="res://scripts/game/pause_menu.gd" id="1_bljtj"]
+[ext_resource type="Texture2D" uid="uid://qfm8r6lbarc5" path="res://asset/texture/ui/pause_window.png" id="1_wmdal"]
+[ext_resource type="Texture2D" uid="uid://ruufgc50ejx7" path="res://asset/texture/ui/close_idle.png" id="2_wha17"]
+[ext_resource type="Texture2D" uid="uid://cxhcpkt0u7h8k" path="res://asset/texture/ui/close_pressed.png" id="3_wmqvo"]
+[ext_resource type="Texture2D" uid="uid://colixjr6eilnf" path="res://asset/texture/ui/large_button_altpng.png" id="5_wp0u3"]
+[ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="6_sjuew"]
+[ext_resource type="Texture2D" uid="uid://dmpmxp7s01enr" path="res://asset/texture/ui/large_button_normal.png" id="7_b1g63"]
+[ext_resource type="Texture2D" uid="uid://bsnf5x35y357k" path="res://asset/texture/ui/promote.png" id="8_x0sj2"]
+[ext_resource type="Texture2D" uid="uid://bsvem3q446n5i" path="res://asset/texture/ui/promote_pressed.png" id="9_mv8s2"]
+[ext_resource type="Texture2D" uid="uid://do3qg2du86vtk" path="res://asset/texture/ui/logo.png" id="10_6x3u7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8nvf"]
+font = ExtResource("6_sjuew")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_bljtj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.12549)
+
+[node name="PauseWindow" type="Sprite2D" parent="."]
+position = Vector2(82, 113.333)
+scale = Vector2(0.260417, 0.255208)
+texture = ExtResource("1_wmdal")
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(118, 49)
+scale = Vector2(0.2, 0.2)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 122.0
+offset_top = 51.6667
+offset_right = 154.0
+offset_bottom = 79.6667
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_wha17")
+texture_pressed = ExtResource("3_wmqvo")
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+offset_left = 57.0
+offset_top = 89.0
+offset_right = 243.0
+offset_bottom = 135.0
+scale = Vector2(0.27, 0.27)
+texture_normal = ExtResource("5_wp0u3")
+
+[node name="ContinueText" type="Label" parent="."]
+offset_left = 68.0
+offset_top = 92.0
+offset_right = 97.0
+offset_bottom = 100.0
+text = "Continue"
+label_settings = SubResource("LabelSettings_c8nvf")
+horizontal_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="."]
+offset_left = 57.0
+offset_top = 141.0
+offset_right = 239.0
+offset_bottom = 182.0
+scale = Vector2(0.27, 0.27)
+texture_normal = ExtResource("7_b1g63")
+
+[node name="ExitText" type="Label" parent="."]
+offset_left = 78.0
+offset_top = 144.0
+offset_right = 86.0
+offset_bottom = 150.0
+text = "Exit"
+label_settings = SubResource("LabelSettings_c8nvf")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.0
+offset_right = 45.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+text = "Fan-game by KevFR
+Assets, SFX by Icoeye
+Music: gemfire"
+label_settings = SubResource("LabelSettings_c8nvf")
+horizontal_alignment = 1
+
+[node name="SteamButton" type="TextureButton" parent="."]
+offset_left = 58.0
+offset_top = 158.0
+offset_right = 278.0
+offset_bottom = 226.0
+scale = Vector2(0.22, 0.22)
+texture_normal = ExtResource("8_x0sj2")
+texture_pressed = ExtResource("9_mv8s2")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(82, 74)
+scale = Vector2(0.0386474, 0.0386474)
+texture = ExtResource("10_6x3u7")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="SteamButton" to="." method="_on_steam_button_pressed"]
