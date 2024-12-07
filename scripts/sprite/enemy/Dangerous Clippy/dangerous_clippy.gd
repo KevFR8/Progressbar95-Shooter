@@ -1,4 +1,4 @@
-class_name Enemy_Red extends Node2D
+class_name Enemy extends Node2D
 
 signal killed(points)
 
@@ -17,9 +17,17 @@ func _on_visibility_screen_exited():
 	
 func _on_area_2d_area_entered(body):
 	health -= 1
-	$TouchedEnemySFX.play()
+	$TouchedEnemySFX.play()  
 	if health == 0:
 		killed.emit(points)
-		queue_free()
-
-
+		queue_free()  
+		
+func die():
+	queue_free()
+	
+func _on_area_2d_body_entered(body):
+	if body is Player:
+		body._die()
+		die()
+	
+	

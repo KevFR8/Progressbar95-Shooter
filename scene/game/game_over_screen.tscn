@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://f4mjmsqg828h"]
+[gd_scene load_steps=7 format=3 uid="uid://f4mjmsqg828h"]
 
 [ext_resource type="Script" path="res://scripts/game/game_over_screen.gd" id="1_hssds"]
 [ext_resource type="Texture2D" uid="uid://cnwpbapw43svv" path="res://asset/texture/ui/bsod_title1.png" id="1_naewj"]
 [ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="2_mak6e"]
+[ext_resource type="Texture2D" uid="uid://gv7c38m6rwm8" path="res://asset/texture/ui/restartbutton.png" id="3_u6hmc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfi8c"]
 font = ExtResource("2_mak6e")
 font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_xpwta"]
+font = ExtResource("2_mak6e")
+font_size = 7
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -31,6 +36,15 @@ position = Vector2(79, 52)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_naewj")
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 174.0
+offset_right = 388.0
+offset_bottom = 258.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_u6hmc")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -50,3 +64,14 @@ The current game session will be terminated
 * Press the key to terminate the current session
 * Don't press CTRL+ALT+DEL to restart"
 label_settings = SubResource("LabelSettings_hfi8c")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 21.0
+offset_right = 196.0
+offset_bottom = 30.0
+text = "Your score: "
+label_settings = SubResource("LabelSettings_xpwta")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

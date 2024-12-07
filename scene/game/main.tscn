@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfnlbqt0qdkd"]
+[gd_scene load_steps=22 format=3 uid="uid://bfnlbqt0qdkd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
@@ -11,11 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bty8x5cdu77i" path="res://scene/game/help_menu.tscn" id="6_lejd1"]
 [ext_resource type="Texture2D" uid="uid://co5hr3yjvndjb" path="res://asset/texture/ui/settings_pressed.png" id="7_o022x"]
 [ext_resource type="Texture2D" uid="uid://bp7qcdviajmc8" path="res://asset/texture/ui/info_pressed.png" id="9_7w5gk"]
+[ext_resource type="PackedScene" uid="uid://f4mjmsqg828h" path="res://scene/game/game_over_screen.tscn" id="9_fd2p0"]
 [ext_resource type="PackedScene" uid="uid://c8fkwo0qkfr25" path="res://scene/game/pause_menu.tscn" id="11_ffmhc"]
 [ext_resource type="AudioStream" uid="uid://cjbmm1u7xis3y" path="res://asset/sfx/click.mp3" id="12_j3erg"]
 [ext_resource type="AudioStream" uid="uid://csyu8hvhkjo25" path="res://asset/sfx/ambient_bigrobot.ogg" id="13_oblus"]
 [ext_resource type="AudioStream" uid="uid://c0hlaxltxrvyp" path="res://asset/sfx/starthdd.mp3" id="14_jcuch"]
 [ext_resource type="PackedScene" uid="uid://b74dwmdsg1ny1" path="res://scene/game/hud.tscn" id="15_raoh3"]
+[ext_resource type="AudioStream" uid="uid://cn0x332qol8nd" path="res://asset/sfx/bsod.mp3" id="18_ikej3"]
+[ext_resource type="PackedScene" uid="uid://cn5yev74yd4k8" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy.tscn" id="18_yefll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1p4"]
 size = Vector2(47, 240)
@@ -27,10 +30,10 @@ size = Vector2(160, 6)
 script = ExtResource("1_5x6mr")
 enemy_scenes = Array[PackedScene]([ExtResource("3_0e0nb"), ExtResource("3_ylgor"), ExtResource("4_skf2q"), ExtResource("6_83qyl")])
 
-[node name="PauseMenu" parent="." instance=ExtResource("11_ffmhc")]
+[node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
 visible = false
 
-[node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
+[node name="PauseMenu" parent="." instance=ExtResource("11_ffmhc")]
 visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -38,6 +41,9 @@ visible = false
 [node name="HUD" parent="UI" instance=ExtResource("15_raoh3")]
 offset_top = 6.0
 offset_bottom = 6.0
+
+[node name="GameOverScreen" parent="UI" instance=ExtResource("9_fd2p0")]
+visible = false
 
 [node name="StaticBody" type="Node2D" parent="."]
 
@@ -98,6 +104,7 @@ texture_normal = ExtResource("5_u7c1l")
 texture_pressed = ExtResource("9_7w5gk")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [node name="Player" type="Node2D" parent="."]
@@ -124,6 +131,12 @@ autoplay = true
 [node name="HDDstart" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_jcuch")
 autoplay = true
+
+[node name="BSOD" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_ikej3")
+
+[node name="DangerousClippy" parent="." instance=ExtResource("18_yefll")]
+position = Vector2(88, 158)
 
 [connection signal="button_up" from="Control/PauseButton" to="." method="_on_pause_button_button_up"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
