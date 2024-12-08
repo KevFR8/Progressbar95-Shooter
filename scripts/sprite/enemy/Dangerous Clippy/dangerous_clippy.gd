@@ -4,7 +4,10 @@ signal killed(points)
 
 @export var speed = 10
 @export var health = 5
-@export var points = 50
+@export var points = 100
+
+
+@onready var animation_player = $AnimationPlayer
 
 var width = 0
 var direction = 1
@@ -23,7 +26,8 @@ func _on_area_2d_area_entered(body):
 		queue_free()  
 		
 func die():
-	queue_free()
+	$ColorRect.show()
+	animation_player.play("die_animation")
 	
 func _on_area_2d_body_entered(body):
 	if body is Player:

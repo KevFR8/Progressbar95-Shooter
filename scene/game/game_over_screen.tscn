@@ -36,15 +36,6 @@ position = Vector2(79, 52)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_naewj")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 174.0
-offset_right = 388.0
-offset_bottom = 258.0
-scale = Vector2(0.25, 0.25)
-texture_normal = ExtResource("3_u6hmc")
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -67,11 +58,22 @@ label_settings = SubResource("LabelSettings_hfi8c")
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 36.0
+offset_left = 53.0
 offset_top = 21.0
-offset_right = 196.0
+offset_right = 97.0
 offset_bottom = 30.0
 text = "Your score: "
 label_settings = SubResource("LabelSettings_xpwta")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 174.0
+offset_right = 388.0
+offset_bottom = 258.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_u6hmc")
+
+[node name="HDDshutdown" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

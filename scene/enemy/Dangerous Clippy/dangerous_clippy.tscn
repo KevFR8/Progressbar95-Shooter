@@ -1,32 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn5yev74yd4k8"]
+[gd_scene load_steps=8 format=3 uid="uid://cn5yev74yd4k8"]
 
 [ext_resource type="Script" path="res://scripts/sprite/enemy/Dangerous Clippy/dangerous_clippy.gd" id="1_6dap4"]
 [ext_resource type="Texture2D" uid="uid://bh764qtd10h48" path="res://asset/texture/ui/ennemy2.png" id="2_al3o2"]
 [ext_resource type="AudioStream" uid="uid://bujvhjaplj8t6" path="res://asset/sfx/dshot2.mp3" id="3_r5juv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4u06g"]
-size = Vector2(18.5, 11.5)
+size = Vector2(30, 18)
+
+[sub_resource type="Animation" id="Animation_0hoe7"]
+resource_name = "die_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(0, 0, 0, 0, 0, 1),
+"update": 0,
+"values": [Color(0.972549, 0, 0, 0), Color(0.972549, 0, 0, 0.392157), Color(0.972549, 0, 0, 0), Color(0.972549, 0, 0, 0.392157), Color(0.972549, 0, 0, 0), Color(0.972549, 0, 0, 0.392157)]
+}
+
+[sub_resource type="Animation" id="Animation_ma324"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.972549, 0, 0, 0.501961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7s5x"]
+_data = {
+"RESET": SubResource("Animation_ma324"),
+"die_animation": SubResource("Animation_0hoe7")
+}
 
 [node name="DangerousClippy" type="Node2D"]
 script = ExtResource("1_6dap4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+color = Color(0.972549, 0, 0, 0.501961)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(-3, 0)
-scale = Vector2(0.1875, 0.1875)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_al3o2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4.25, 0.25)
+position = Vector2(-5, 0)
 shape = SubResource("RectangleShape2D_4u06g")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(-4, -1.78814e-07)
-scale = Vector2(1, 0.6)
+position = Vector2(-5, -0.25)
+scale = Vector2(1.55, 0.975)
 
 [node name="TouchedEnemySFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_r5juv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p7s5x")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

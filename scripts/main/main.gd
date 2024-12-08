@@ -29,6 +29,12 @@ func _ready():
 	player.global_position = player_spawn_pos.global_position
 	player.bullet_shot.connect(_on_player_bullet_shot)
 	player.killed.connect(_on_player_killed)
+
+func _process(delta):
+	if timer.wait_time > 0.5:
+		timer.wait_time -= delta*0.005
+	elif timer.wait_time < 0.5:
+		timer.wait_time = 0.5
 	
 func _on_player_bullet_shot(bullet_scene, location):
 	var bullet = bullet_scene.instantiate()
@@ -48,11 +54,13 @@ func _on_enemy_killed(points):
 	score += points
 	
 func _on_player_killed():
+	gos.set_score(score)
 	$BSOD.play()
-	await get_tree().create_timer(1.5).timeout
+	$Ambient.queue_free()
+	await get_tree().create_timer(2.5).timeout
+	$Shutdownfan.play()
 	gos.visible = true
 	MusicScene.stop_music() # Arrêter la musique
-
 
 
 	

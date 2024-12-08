@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bfnlbqt0qdkd"]
+[gd_scene load_steps=23 format=3 uid="uid://bfnlbqt0qdkd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b74dwmdsg1ny1" path="res://scene/game/hud.tscn" id="15_raoh3"]
 [ext_resource type="AudioStream" uid="uid://cn0x332qol8nd" path="res://asset/sfx/bsod.mp3" id="18_ikej3"]
 [ext_resource type="PackedScene" uid="uid://cn5yev74yd4k8" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy.tscn" id="18_yefll"]
+[ext_resource type="AudioStream" uid="uid://mekifkj36a7" path="res://asset/sfx/fanshutdown.mp3" id="20_wtp43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1p4"]
 size = Vector2(47, 240)
@@ -104,7 +105,7 @@ texture_normal = ExtResource("5_u7c1l")
 texture_pressed = ExtResource("9_7w5gk")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 autostart = true
 
 [node name="Player" type="Node2D" parent="."]
@@ -118,6 +119,9 @@ position = Vector2(88, 189)
 [node name="BulletContainer" type="Node2D" parent="."]
 
 [node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="DangerousClippy" parent="." instance=ExtResource("18_yefll")]
+position = Vector2(91, 58)
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_j3erg")
@@ -135,8 +139,8 @@ autoplay = true
 [node name="BSOD" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_ikej3")
 
-[node name="DangerousClippy" parent="." instance=ExtResource("18_yefll")]
-position = Vector2(88, 158)
+[node name="Shutdownfan" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_wtp43")
 
 [connection signal="button_up" from="Control/PauseButton" to="." method="_on_pause_button_button_up"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
