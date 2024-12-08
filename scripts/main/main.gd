@@ -14,6 +14,8 @@ var audio = preload("res://scripts/game/music_scene.gd")
 @onready var hud = $UI/HUD
 @onready var gos = $UI/GameOverScreen
 
+
+var is_music_playing = true
 var player = null
 var score := 0:
 	set(value):
@@ -49,6 +51,10 @@ func _on_player_killed():
 	$BSOD.play()
 	await get_tree().create_timer(1.5).timeout
 	gos.visible = true
+	MusicScene.stop_music() # Arrêter la musique
+
+
+
 	
 func _on_pause_button_pressed():
 	$ClickSFX.play()
