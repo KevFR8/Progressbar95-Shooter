@@ -121,6 +121,9 @@ position = Vector2(88, 189)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 
+[node name="DangerousClippy" parent="." instance=ExtResource("18_yefll")]
+position = Vector2(91, 58)
+
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_j3erg")
 volume_db = 3.0

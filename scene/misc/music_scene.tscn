@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cku40jeecbq80"]
+[gd_scene load_steps=3 format=3 uid="uid://cku40jeecbq80"]
 
+[ext_resource type="AudioStream" uid="uid://domftmsici05y" path="res://asset/bgm/pb_theme_midi.mp3" id="2_8c6d1"]
 [ext_resource type="Script" path="res://scripts/game/music_scene.gd" id="2_p8hqn"]
 
 [node name="MusicScene" type="Node"]
 process_mode = 3
 script = ExtResource("2_p8hqn")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8c6d1")
+autoplay = true

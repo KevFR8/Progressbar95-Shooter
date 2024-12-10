@@ -6,7 +6,6 @@ signal killed(points)
 @export var health = 5
 @export var points = 100
 
-
 @onready var animation_player = $AnimationPlayer
 
 var width = 0

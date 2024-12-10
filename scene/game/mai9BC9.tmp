@@ -30,7 +30,6 @@ size = Vector2(160, 6)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5x6mr")
 enemy_scenes = Array[PackedScene]([ExtResource("3_0e0nb"), ExtResource("3_ylgor"), ExtResource("4_skf2q"), ExtResource("6_83qyl")])
-special_enemy_scene = ExtResource("18_yefll")
 
 [node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
 visible = false
@@ -120,6 +119,9 @@ position = Vector2(88, 189)
 [node name="BulletContainer" type="Node2D" parent="."]
 
 [node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="DangerousClippy" parent="." instance=ExtResource("18_yefll")]
+position = Vector2(91, 58)
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_j3erg")
