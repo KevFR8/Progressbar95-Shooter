@@ -24,7 +24,7 @@ var score := 0:
 		_adjust_enemy_spawn_rate()  # Ajuster le taux d'apparition des ennemis basé sur le score
 
 func _ready():
-	score = 500
+	score = 0
 	player = get_tree().get_first_node_in_group("player")
 	assert(player != null)
 	player.global_position = player_spawn_pos.global_position
@@ -36,8 +36,8 @@ func _process(delta):
 
 func _adjust_enemy_spawn_rate():
 	# Ajuster le temps d'apparition basé sur le score
-	var min_wait_time = 0.5  # Temps minimum d'attente
-	var max_wait_time = 2.0  # Temps maximum d'attente
+	var min_wait_time = 1.0  # Temps minimum d'attente légèrement plus long pour ralentir le spawn
+	var max_wait_time = 3.0  # Temps maximum d'attente plus long au départ
 	var score_factor = clamp(score / 1000.0, 0.0, 1.0)  # Ajustement basé sur le score
 	timer.wait_time = lerp(max_wait_time, min_wait_time, score_factor)
 
@@ -50,21 +50,20 @@ func _on_enemy_spawn_timer_timeout():
 	if score >= 500:
 		# Clippy Spawner Normal
 		var special_enemy = special_enemy_scene.instantiate()
-		special_enemy.global_position = Vector2(randf_range(5, 515), 0)
+		special_enemy.global_position = Vector2(randf_range(5, 510), 0)
 		enemy_container.add_child(special_enemy)
 		special_enemy.killed.connect(_on_enemy_killed)
 
 		# Dangerous Clippy Spawner
 		var random_enemy = enemy_scenes.pick_random().instantiate()
-		random_enemy.global_position = Vector2(randf_range(5, 515), 0)
+		random_enemy.global_position = Vector2(randf_range(5, 510), 0)
 		enemy_container.add_child(random_enemy)
 		random_enemy.killed.connect(_on_enemy_killed)
 	else:
 		var enemy = enemy_scenes.pick_random().instantiate()
-		enemy.global_position = Vector2(randf_range(5, 515), 0)
+		enemy.global_position = Vector2(randf_range(5, 510), 0)
 		enemy_container.add_child(enemy)
 		enemy.killed.connect(_on_enemy_killed)
-
 func _on_enemy_killed(points):
 	score += points
 
