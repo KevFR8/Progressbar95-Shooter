@@ -111,16 +111,16 @@ position = Vector2(88, 189)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 
-[node name="Crt1" type="Sprite2D" parent="."]
-position = Vector2(80.5, 120)
-scale = Vector2(0.106771, 0.222222)
-texture = ExtResource("21_f55q8")
-
 [node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("11_ffmhc")]
 visible = false
+
+[node name="Crt1" type="Sprite2D" parent="."]
+position = Vector2(80.5, 120)
+scale = Vector2(0.106771, 0.222222)
+texture = ExtResource("21_f55q8")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

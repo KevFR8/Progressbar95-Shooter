@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://f4mjmsqg828h"]
+[gd_scene load_steps=8 format=3 uid="uid://f4mjmsqg828h"]
 
 [ext_resource type="Script" path="res://scripts/game/game_over_screen.gd" id="1_hssds"]
 [ext_resource type="Texture2D" uid="uid://cnwpbapw43svv" path="res://asset/texture/ui/bsod_title1.png" id="1_naewj"]
 [ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="2_mak6e"]
 [ext_resource type="Texture2D" uid="uid://gv7c38m6rwm8" path="res://asset/texture/ui/restartbutton.png" id="3_u6hmc"]
+[ext_resource type="Texture2D" uid="uid://b1ac8ufvno5di" path="res://asset/texture/ui/crt1.png" id="5_88fbq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfi8c"]
 font = ExtResource("2_mak6e")
@@ -75,5 +76,10 @@ scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("3_u6hmc")
 
 [node name="HDDshutdown" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Crt1" type="Sprite2D" parent="."]
+position = Vector2(80.5, 120)
+scale = Vector2(0.106771, 0.222222)
+texture = ExtResource("5_88fbq")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
