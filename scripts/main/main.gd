@@ -1,8 +1,8 @@
 extends Node2D
 
 # Export variables
-@export var enemy_scenes: Array[PackedScene] = []
-@export var special_enemy_scene: PackedScene  # La scène de l'ennemi spécial
+@export var enemy_scenes: Array[PackedScene] = []  # Tableau des ennemis normaux
+@export var special_enemy_scenes: Array[PackedScene] = []  # Tableau des ennemis spéciaux
 @export var points = 50
 
 var audio = preload("res://scripts/game/music_scene.gd")
@@ -14,8 +14,6 @@ var audio = preload("res://scripts/game/music_scene.gd")
 @onready var enemy_container = $EnemyContainer
 @onready var hud = $UI/HUD
 @onready var gos = $UI/GameOverScreen
-@onready var time = $EnemySpawnTimer
-
 
 var is_music_playing = true
 var player = null
@@ -32,24 +30,24 @@ func _ready():
 	player.global_position = player_spawn_pos.global_position
 	player.bullet_shot.connect(_on_player_bullet_shot)
 	player.killed.connect(_on_player_killed)
+
+	# Commencer avec un taux de spawn rapide
 	timer.wait_time = 1.0
 	timer.start()
 
-func _process(delta):
-	pass
-
 func _adjust_enemy_spawn_rate():
 	# Ajuster le temps d'apparition basé sur le score
-	var initial_wait_time = 1.0
-	var min_wait_time = 1.0  # Temps minimum d'attente légèrement plus long pour ralentir le spawn
-	var max_wait_time = 3.0  # Temps maximum d'attente plus long au départ
+	var initial_wait_time = 1.0  # Temps d'attente initial court
+	var min_wait_time = 1.5  # Temps minimum d'attente
+	var max_wait_time = 3.0  # Temps maximum d'attente
 	var score_factor = clamp(score / 1000.0, 0.0, 1.0)  # Ajustement basé sur le score
-	timer.wait_time = lerp(max_wait_time, min_wait_time, score_factor)
-	
+
+	# Si le score est inférieur à 500, utiliser le temps d'attente initial
 	if score < 500:
 		timer.wait_time = initial_wait_time
 	else:
-		time.wait_time = lerp(max_wait_time, min_wait_time, score_factor)
+		# Ajustement normal basé sur le score
+		timer.wait_time = lerp(max_wait_time, min_wait_time, score_factor)
 
 func _on_player_bullet_shot(bullet_scene, location):
 	var bullet = bullet_scene.instantiate()
@@ -59,7 +57,7 @@ func _on_player_bullet_shot(bullet_scene, location):
 func _on_enemy_spawn_timer_timeout():
 	if score >= 500:
 		# Clippy Spawner Normal
-		var special_enemy = special_enemy_scene.instantiate()
+		var special_enemy = special_enemy_scenes.pick_random().instantiate()
 		special_enemy.global_position = Vector2(randf_range(5, 510), 0)
 		enemy_container.add_child(special_enemy)
 		special_enemy.killed.connect(_on_enemy_killed)
@@ -74,6 +72,7 @@ func _on_enemy_spawn_timer_timeout():
 		enemy.global_position = Vector2(randf_range(5, 510), 0)
 		enemy_container.add_child(enemy)
 		enemy.killed.connect(_on_enemy_killed)
+
 func _on_enemy_killed(points):
 	score += points
 

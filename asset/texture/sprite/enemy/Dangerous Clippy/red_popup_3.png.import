@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0tyj1nxca8u2"
-path="res://.godot/imported/ball.png-7bcd8804a739f4f0fcfb5c55fbf6c8f1.ctex"
+uid="uid://dubmcaxpscksc"
+path="res://.godot/imported/red_popup_3.png-f0a214aec041febea7e6a256b5a9e856.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/texture/sprite/bullet/ball.png"
-dest_files=["res://.godot/imported/ball.png-7bcd8804a739f4f0fcfb5c55fbf6c8f1.ctex"]
+source_file="res://asset/texture/sprite/enemy/Dangerous Clippy/red_popup_3.png"
+dest_files=["res://.godot/imported/red_popup_3.png-f0a214aec041febea7e6a256b5a9e856.ctex"]
 
 [params]
 

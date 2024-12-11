@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfnlbqt0qdkd"]
+[gd_scene load_steps=28 format=3 uid="uid://bfnlbqt0qdkd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
@@ -7,11 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://b3q6typljbnyf" path="res://scene/enemy/Clippy/clippy_3.tscn" id="4_skf2q"]
 [ext_resource type="Texture2D" uid="uid://bhiur1wg8qde0" path="res://asset/texture/ui/settings_button.png" id="4_x8sdw"]
 [ext_resource type="Texture2D" uid="uid://doxtqm2hd6hbe" path="res://asset/texture/ui/info_button.png" id="5_u7c1l"]
+[ext_resource type="PackedScene" uid="uid://c5cajmx8rg3bv" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy_1.tscn" id="6_8ehbc"]
 [ext_resource type="PackedScene" uid="uid://b5y5s0vs0nlek" path="res://scene/enemy/Clippy/clippy_4.tscn" id="6_83qyl"]
 [ext_resource type="PackedScene" uid="uid://bty8x5cdu77i" path="res://scene/game/help_menu.tscn" id="6_lejd1"]
 [ext_resource type="Texture2D" uid="uid://co5hr3yjvndjb" path="res://asset/texture/ui/settings_pressed.png" id="7_o022x"]
+[ext_resource type="PackedScene" uid="uid://cmquhsigyntc0" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy_2.tscn" id="7_sf2mb"]
+[ext_resource type="PackedScene" uid="uid://bdr1eqysogpng" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy_3.tscn" id="8_bqib0"]
 [ext_resource type="Texture2D" uid="uid://bp7qcdviajmc8" path="res://asset/texture/ui/info_pressed.png" id="9_7w5gk"]
 [ext_resource type="PackedScene" uid="uid://f4mjmsqg828h" path="res://scene/game/game_over_screen.tscn" id="9_fd2p0"]
+[ext_resource type="PackedScene" uid="uid://dswxi02pludjn" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy_4.tscn" id="9_gt2ly"]
 [ext_resource type="PackedScene" uid="uid://c8fkwo0qkfr25" path="res://scene/game/pause_menu.tscn" id="11_ffmhc"]
 [ext_resource type="AudioStream" uid="uid://cjbmm1u7xis3y" path="res://asset/sfx/click.mp3" id="12_j3erg"]
 [ext_resource type="AudioStream" uid="uid://csyu8hvhkjo25" path="res://asset/sfx/ambient_bigrobot.ogg" id="13_oblus"]
@@ -31,7 +35,7 @@ size = Vector2(160, 6)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5x6mr")
 enemy_scenes = Array[PackedScene]([ExtResource("3_0e0nb"), ExtResource("3_ylgor"), ExtResource("4_skf2q"), ExtResource("6_83qyl")])
-special_enemy_scene = ExtResource("18_yefll")
+special_enemy_scenes = Array[PackedScene]([ExtResource("18_yefll"), ExtResource("6_8ehbc"), ExtResource("7_sf2mb"), ExtResource("8_bqib0"), ExtResource("9_gt2ly")])
 
 [node name="StaticBody" type="Node2D" parent="."]
 

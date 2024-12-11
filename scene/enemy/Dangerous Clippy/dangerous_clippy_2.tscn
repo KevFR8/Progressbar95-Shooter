@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmquhsigyntc0"]
+
+[ext_resource type="PackedScene" uid="uid://cn5yev74yd4k8" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy.tscn" id="1_k8bb5"]
+[ext_resource type="Texture2D" uid="uid://cvrwshcjh1j78" path="res://asset/texture/sprite/enemy/Dangerous Clippy/red_popup_2.png" id="2_y0677"]
+
+[node name="DangerousClippy" instance=ExtResource("1_k8bb5")]
+
+[node name="Sprite2D" parent="Area2D" index="0"]
+texture = ExtResource("2_y0677")
