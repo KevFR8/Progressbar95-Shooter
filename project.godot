@@ -13,7 +13,8 @@ config_version=5
 config/name="PB95S"
 run/main_scene="res://scene/game/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="res://asset/texture/ui/boot.png"
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -26,6 +27,8 @@ window/size/viewport_height=240
 window/size/window_width_override=640
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://asset/texture/cursor/cursor.png"
+window/custom_image=""
 
 [input]
 

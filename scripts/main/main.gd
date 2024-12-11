@@ -14,6 +14,8 @@ var audio = preload("res://scripts/game/music_scene.gd")
 @onready var enemy_container = $EnemyContainer
 @onready var hud = $UI/HUD
 @onready var gos = $UI/GameOverScreen
+@onready var time = $EnemySpawnTimer
+
 
 var is_music_playing = true
 var player = null
@@ -30,16 +32,24 @@ func _ready():
 	player.global_position = player_spawn_pos.global_position
 	player.bullet_shot.connect(_on_player_bullet_shot)
 	player.killed.connect(_on_player_killed)
+	timer.wait_time = 1.0
+	timer.start()
 
 func _process(delta):
 	pass
 
 func _adjust_enemy_spawn_rate():
 	# Ajuster le temps d'apparition basé sur le score
+	var initial_wait_time = 1.0
 	var min_wait_time = 1.0  # Temps minimum d'attente légèrement plus long pour ralentir le spawn
 	var max_wait_time = 3.0  # Temps maximum d'attente plus long au départ
 	var score_factor = clamp(score / 1000.0, 0.0, 1.0)  # Ajustement basé sur le score
 	timer.wait_time = lerp(max_wait_time, min_wait_time, score_factor)
+	
+	if score < 500:
+		timer.wait_time = initial_wait_time
+	else:
+		time.wait_time = lerp(max_wait_time, min_wait_time, score_factor)
 
 func _on_player_bullet_shot(bullet_scene, location):
 	var bullet = bullet_scene.instantiate()

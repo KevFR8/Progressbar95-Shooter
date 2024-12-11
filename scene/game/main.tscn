@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bfnlbqt0qdkd"]
+[gd_scene load_steps=24 format=3 uid="uid://bfnlbqt0qdkd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://cn0x332qol8nd" path="res://asset/sfx/bsod.mp3" id="18_ikej3"]
 [ext_resource type="PackedScene" uid="uid://cn5yev74yd4k8" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy.tscn" id="18_yefll"]
 [ext_resource type="AudioStream" uid="uid://mekifkj36a7" path="res://asset/sfx/fanshutdown.mp3" id="20_wtp43"]
+[ext_resource type="Texture2D" uid="uid://b1ac8ufvno5di" path="res://asset/texture/ui/crt1.png" id="21_f55q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk1p4"]
 size = Vector2(47, 240)
@@ -31,21 +32,6 @@ size = Vector2(160, 6)
 script = ExtResource("1_5x6mr")
 enemy_scenes = Array[PackedScene]([ExtResource("3_0e0nb"), ExtResource("3_ylgor"), ExtResource("4_skf2q"), ExtResource("6_83qyl")])
 special_enemy_scene = ExtResource("18_yefll")
-
-[node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
-visible = false
-
-[node name="PauseMenu" parent="." instance=ExtResource("11_ffmhc")]
-visible = false
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="UI" instance=ExtResource("15_raoh3")]
-offset_top = 6.0
-offset_bottom = 6.0
-
-[node name="GameOverScreen" parent="UI" instance=ExtResource("9_fd2p0")]
-visible = false
 
 [node name="StaticBody" type="Node2D" parent="."]
 
@@ -106,7 +92,7 @@ texture_normal = ExtResource("5_u7c1l")
 texture_pressed = ExtResource("9_7w5gk")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="Player" type="Node2D" parent="."]
@@ -121,9 +107,30 @@ position = Vector2(88, 189)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 
+[node name="Crt1" type="Sprite2D" parent="."]
+position = Vector2(80.5, 120)
+scale = Vector2(0.106771, 0.222222)
+texture = ExtResource("21_f55q8")
+
+[node name="Help_Menu" parent="." instance=ExtResource("6_lejd1")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_ffmhc")]
+visible = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("15_raoh3")]
+offset_top = 6.0
+offset_bottom = 6.0
+
+[node name="GameOverScreen" parent="UI" instance=ExtResource("9_fd2p0")]
+visible = false
+
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_j3erg")
 volume_db = 3.0
+attenuation = 0.0
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_oblus")
