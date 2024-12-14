@@ -102,10 +102,10 @@ autostart = true
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player" parent="Player" groups=["player"] instance=ExtResource("1_2vyab")]
-position = Vector2(9, -24)
+position = Vector2(6, -24)
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="Player"]
-position = Vector2(88, 189)
+position = Vector2(85, 189)
 
 [node name="BulletContainer" type="Node2D" parent="."]
 
@@ -121,6 +121,7 @@ visible = false
 position = Vector2(80.5, 120)
 scale = Vector2(0.106771, 0.222222)
 texture = ExtResource("21_f55q8")
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
