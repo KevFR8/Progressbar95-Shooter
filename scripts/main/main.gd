@@ -24,6 +24,7 @@ var score := 0:
 		_adjust_enemy_spawn_rate()  # Ajuster le taux d'apparition des ennemis basé sur le score
 
 func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	score = 0
 	player = get_tree().get_first_node_in_group("player")
 	assert(player != null)

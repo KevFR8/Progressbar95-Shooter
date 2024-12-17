@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8fkwo0qkfr25"]
+[gd_scene load_steps=13 format=3 uid="uid://c8fkwo0qkfr25"]
 
 [ext_resource type="Script" path="res://scripts/game/pause_menu.gd" id="1_bljtj"]
 [ext_resource type="Texture2D" uid="uid://qfm8r6lbarc5" path="res://asset/texture/ui/pause_window.png" id="1_wmdal"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bsnf5x35y357k" path="res://asset/texture/ui/promote.png" id="8_x0sj2"]
 [ext_resource type="Texture2D" uid="uid://bsvem3q446n5i" path="res://asset/texture/ui/promote_pressed.png" id="9_mv8s2"]
 [ext_resource type="Texture2D" uid="uid://do3qg2du86vtk" path="res://asset/texture/ui/logo.png" id="10_6x3u7"]
+[ext_resource type="LabelSettings" uid="uid://cprgrgg1r620p" path="res://themes/label_text.tres" id="11_xg3oa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c8nvf"]
 font = ExtResource("6_sjuew")
@@ -112,6 +113,21 @@ texture_pressed = ExtResource("9_mv8s2")
 position = Vector2(82, 74)
 scale = Vector2(0.0386474, 0.0386474)
 texture = ExtResource("10_6x3u7")
+
+[node name="Version" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -54.0
+offset_right = 19.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Version 1.0"
+label_settings = ExtResource("11_xg3oa")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
