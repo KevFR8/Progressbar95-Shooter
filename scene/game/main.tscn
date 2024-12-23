@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bfnlbqt0qdkd"]
+[gd_scene load_steps=30 format=3 uid="uid://bfnlbqt0qdkd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
@@ -20,7 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://cjbmm1u7xis3y" path="res://asset/sfx/click.mp3" id="12_j3erg"]
 [ext_resource type="AudioStream" uid="uid://csyu8hvhkjo25" path="res://asset/sfx/ambient_bigrobot.ogg" id="13_oblus"]
 [ext_resource type="AudioStream" uid="uid://c0hlaxltxrvyp" path="res://asset/sfx/starthdd.mp3" id="14_jcuch"]
+[ext_resource type="Texture2D" uid="uid://b0ayhyf5t6xqj" path="res://asset/texture/ui/audio_on.png" id="15_oy2j2"]
 [ext_resource type="PackedScene" uid="uid://b74dwmdsg1ny1" path="res://scene/game/hud.tscn" id="15_raoh3"]
+[ext_resource type="Texture2D" uid="uid://dppc5ae6lcs4w" path="res://asset/texture/ui/audio_off.png" id="16_suuuy"]
 [ext_resource type="AudioStream" uid="uid://cn0x332qol8nd" path="res://asset/sfx/bsod.mp3" id="18_ikej3"]
 [ext_resource type="PackedScene" uid="uid://cn5yev74yd4k8" path="res://scene/enemy/Dangerous Clippy/dangerous_clippy.tscn" id="18_yefll"]
 [ext_resource type="AudioStream" uid="uid://mekifkj36a7" path="res://asset/sfx/fanshutdown.mp3" id="20_wtp43"]
@@ -94,6 +96,15 @@ offset_bottom = 43.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("5_u7c1l")
 texture_pressed = ExtResource("9_7w5gk")
+
+[node name="MusicButton" type="TextureButton" parent="Control"]
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 44.0
+offset_bottom = 43.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("15_oy2j2")
+texture_disabled = ExtResource("16_suuuy")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
