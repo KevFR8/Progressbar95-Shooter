@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://bfnlbqt0qdkd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hw6xorujlia" path="res://scene/player/player.tscn" id="1_2vyab"]
-[ext_resource type="Script" path="res://scripts/main/main.gd" id="1_5x6mr"]
+[ext_resource type="Script" uid="uid://cfan1cwympgpw" path="res://scripts/main/main.gd" id="1_5x6mr"]
 [ext_resource type="PackedScene" uid="uid://dp8m10ijyivkt" path="res://scene/enemy/Clippy/clippy_1.tscn" id="3_0e0nb"]
 [ext_resource type="PackedScene" uid="uid://brti4y651vuxp" path="res://scene/enemy/Clippy/clippy_2.tscn" id="3_ylgor"]
 [ext_resource type="PackedScene" uid="uid://b3q6typljbnyf" path="res://scene/enemy/Clippy/clippy_3.tscn" id="4_skf2q"]
@@ -98,6 +98,7 @@ texture_normal = ExtResource("5_u7c1l")
 texture_pressed = ExtResource("9_7w5gk")
 
 [node name="MusicButton" type="TextureButton" parent="Control"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 11.0
 offset_right = 44.0

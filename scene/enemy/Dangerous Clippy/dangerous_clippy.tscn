@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cn5yev74yd4k8"]
 
-[ext_resource type="Script" path="res://scripts/sprite/enemy/Dangerous Clippy/dangerous_clippy.gd" id="1_6dap4"]
+[ext_resource type="Script" uid="uid://bbwm5u37umluv" path="res://scripts/sprite/enemy/Dangerous Clippy/dangerous_clippy.gd" id="1_6dap4"]
 [ext_resource type="Texture2D" uid="uid://bh764qtd10h48" path="res://asset/texture/ui/ennemy2.png" id="2_al3o2"]
 [ext_resource type="AudioStream" uid="uid://bujvhjaplj8t6" path="res://asset/sfx/dshot2.mp3" id="3_r5juv"]
 
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7s5x"]
 _data = {
-"RESET": SubResource("Animation_ma324"),
-"die_animation": SubResource("Animation_0hoe7")
+&"RESET": SubResource("Animation_ma324"),
+&"die_animation": SubResource("Animation_0hoe7")
 }
 
 [node name="DangerousClippy" type="Node2D"]

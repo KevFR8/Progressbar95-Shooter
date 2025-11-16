@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4hw6xorujlia"]
 
-[ext_resource type="Script" path="res://scripts/sprite/player/player.gd" id="1_jq5ax"]
+[ext_resource type="Script" uid="uid://bdl6wjeqnm0o6" path="res://scripts/sprite/player/player.gd" id="1_jq5ax"]
 [ext_resource type="Texture2D" uid="uid://c4coprx874q30" path="res://asset/texture/sprite/player/progressbar.png" id="1_tx1pk"]
 [ext_resource type="AudioStream" uid="uid://cfe3l3yksxsux" path="res://asset/sfx/dshot1.mp3" id="3_olof7"]
 

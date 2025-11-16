@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://f4mjmsqg828h"]
 
-[ext_resource type="Script" path="res://scripts/game/game_over_screen.gd" id="1_hssds"]
+[ext_resource type="Script" uid="uid://vs28inseswjl" path="res://scripts/game/game_over_screen.gd" id="1_hssds"]
 [ext_resource type="Texture2D" uid="uid://cnwpbapw43svv" path="res://asset/texture/ui/bsod_title1.png" id="1_naewj"]
 [ext_resource type="FontFile" uid="uid://djb8e88yv4bow" path="res://font/progresspixel.ttf" id="2_mak6e"]
 [ext_resource type="Texture2D" uid="uid://gv7c38m6rwm8" path="res://asset/texture/ui/restartbutton.png" id="3_u6hmc"]

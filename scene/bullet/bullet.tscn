@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnrduf6cdvfco"]
 
-[ext_resource type="Script" path="res://scripts/sprite/bullet/bullet.gd" id="1_ptr53"]
+[ext_resource type="Script" uid="uid://br8rui7pxnybr" path="res://scripts/sprite/bullet/bullet.gd" id="1_ptr53"]
 [ext_resource type="Texture2D" uid="uid://ogo86ts2uper" path="res://asset/texture/anim/shoot.png" id="2_sq2ig"]
 [ext_resource type="AudioStream" uid="uid://bujvhjaplj8t6" path="res://asset/sfx/dshot2.mp3" id="3_2lqmg"]
 
@@ -63,8 +63,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nql4n"]
 _data = {
-"RESET": SubResource("Animation_v6gbx"),
-"shot": SubResource("Animation_jaoxw")
+&"RESET": SubResource("Animation_v6gbx"),
+&"shot": SubResource("Animation_jaoxw")
 }
 
 [node name="Bullet" type="Area2D" groups=["bullet"]]
